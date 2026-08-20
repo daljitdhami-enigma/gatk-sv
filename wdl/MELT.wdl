@@ -10,8 +10,8 @@
 
 version 1.0
 
-import "Structs.wdl"
-import "CollectCoverage.wdl" as cov
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CollectCoverage.wdl" as cov
 
 workflow MELT {
   input {

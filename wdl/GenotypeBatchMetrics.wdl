@@ -1,6 +1,6 @@
 version 1.0
 
-import "TestUtils.wdl" as tu
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TestUtils.wdl" as tu
 
 workflow GenotypeBatchMetrics {
   input {

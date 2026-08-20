@@ -1,10 +1,10 @@
 version 1.0
 
-import "FilterOutlierSamples.wdl" as filter_outliers
-import "Structs.wdl"
-import "Utils.wdl" as util
-import "IdentifyOutlierSamples.wdl" as identify_outliers
-import "TasksMakeCohortVcf.wdl" as tasks_mcv
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/FilterOutlierSamples.wdl" as filter_outliers
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as util
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/IdentifyOutlierSamples.wdl" as identify_outliers
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as tasks_mcv
 
 # Workflow to identify & filter outliers from VCFs as part of FilterBatch after FilterBatchSites & PlotSVCountsPerSample
 workflow FilterBatchSamples {

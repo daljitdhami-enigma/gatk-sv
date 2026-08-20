@@ -1,8 +1,8 @@
 version 1.0
     
-import "Structs.wdl"
-import "Utils.wdl" as Utils
-import "TasksMakeCohortVcf.wdl" as TasksMakeCohortVcf
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as Utils
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as TasksMakeCohortVcf
 
 workflow ReformatRawFiles {
 

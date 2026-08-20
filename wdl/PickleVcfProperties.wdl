@@ -1,6 +1,6 @@
 version 1.0
 
-import "Utils.wdl" as Utils
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as Utils
 
 workflow PickleVcfProperties {
     input {

@@ -1,19 +1,19 @@
 version 1.0
 
-import "Structs.wdl"
-import "BatchEvidenceMerging.wdl" as bem
-import "CNMOPS.wdl" as cnmops
-import "CollectCoverage.wdl" as cov
-import "DepthPreprocessing.wdl" as dpn
-import "MakeBincovMatrix.wdl" as mbm
-import "MatrixQC.wdl" as mqc
-import "MedianCov.wdl" as mc
-import "GatherBatchEvidenceMetrics.wdl" as metrics
-import "PESRPreprocessing.wdl" as pp
-import "GermlineCNVCase.wdl" as gcnv
-import "PloidyEstimation.wdl" as pe
-import "TinyResolve.wdl" as tiny
-import "Utils.wdl" as util
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/BatchEvidenceMerging.wdl" as bem
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CNMOPS.wdl" as cnmops
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CollectCoverage.wdl" as cov
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/DepthPreprocessing.wdl" as dpn
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/MakeBincovMatrix.wdl" as mbm
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/MatrixQC.wdl" as mqc
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/MedianCov.wdl" as mc
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GatherBatchEvidenceMetrics.wdl" as metrics
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/PESRPreprocessing.wdl" as pp
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GermlineCNVCase.wdl" as gcnv
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/PloidyEstimation.wdl" as pe
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TinyResolve.wdl" as tiny
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as util
 
 # Batch-level workflow:
 #   - Merge sample evidence data into a single batch

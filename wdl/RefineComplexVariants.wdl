@@ -1,10 +1,10 @@
 version 1.0
 
-import "Structs.wdl"
-import "TasksMakeCohortVcf.wdl" as MiniTasks
-import "CollectPEMetricsForCPX.wdl" as collect_pe_metrics_for_cpx
-import "CollectLargeCNVSupportForCPX.wdl" as collect_lg_cnv_supp_for_cpx
-import "Utils.wdl" as util
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as MiniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CollectPEMetricsForCPX.wdl" as collect_pe_metrics_for_cpx
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CollectLargeCNVSupportForCPX.wdl" as collect_lg_cnv_supp_for_cpx
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as util
 
 workflow RefineComplexVariants {
     input {

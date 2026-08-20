@@ -1,7 +1,7 @@
 version 1.0
 
-import "Structs.wdl"
-import "Utils.wdl" as utils
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as utils
 
 workflow PreprocessPESR {
   input {

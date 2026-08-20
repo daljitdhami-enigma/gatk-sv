@@ -1,10 +1,10 @@
 version 1.0
 
-import "CombineBatches.wdl" as Cluster
-import "ResolveComplexVariants.wdl" as ComplexResolve
-import "GenotypeComplexVariants.wdl" as ComplexGenotype
-import "CleanVcf.wdl" as Clean
-import "MainVcfQc.wdl" as VcfQc
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CombineBatches.wdl" as Cluster
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/ResolveComplexVariants.wdl" as ComplexResolve
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GenotypeComplexVariants.wdl" as ComplexGenotype
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CleanVcf.wdl" as Clean
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/MainVcfQc.wdl" as VcfQc
 
 workflow MakeCohortVcf {
   input {

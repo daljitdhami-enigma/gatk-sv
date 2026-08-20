@@ -1,7 +1,7 @@
 version 1.0
 
-import "Structs.wdl"
-import "CollectPEMetricsPerBatchCPX.wdl" as per_batch
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CollectPEMetricsPerBatchCPX.wdl" as per_batch
 
 workflow CollectPEMetricsForCPX {
     input {

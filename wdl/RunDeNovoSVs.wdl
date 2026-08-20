@@ -1,10 +1,10 @@
 version 1.0
     
-import "Structs.wdl"
-import "ReformatRawFiles.wdl" as raw
-import "TasksMakeCohortVcf.wdl" as miniTasks
-import "DeNovoSVsScatter.wdl" as runDeNovo
-import "Utils.wdl" as util
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/ReformatRawFiles.wdl" as raw
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as miniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/DeNovoSVsScatter.wdl" as runDeNovo
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as util
 
 workflow DeNovoSV {
 

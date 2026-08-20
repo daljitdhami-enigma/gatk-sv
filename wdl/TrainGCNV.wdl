@@ -1,9 +1,9 @@
 version 1.0
 
-import "Structs.wdl"
-import "CollectCoverage.wdl" as cov
-import "GermlineCNVCohort.wdl" as gcnv_cohort
-import "Utils.wdl" as util
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CollectCoverage.wdl" as cov
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GermlineCNVCohort.wdl" as gcnv_cohort
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as util
 
 # Trains gCNV model on a cohort with counts already collected
 workflow TrainGCNV {

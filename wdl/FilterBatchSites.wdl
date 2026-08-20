@@ -1,7 +1,7 @@
 version 1.0
 
-import "Structs.wdl"
-import "PlotSVCountsPerSample.wdl" as sv_counts
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/PlotSVCountsPerSample.wdl" as sv_counts
 
 workflow FilterBatchSites {
   input {

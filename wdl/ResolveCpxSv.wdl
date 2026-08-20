@@ -2,7 +2,7 @@ version 1.0
 
 # Author: Ryan Collins <rlcollins@g.harvard.edu>
 
-import "TasksMakeCohortVcf.wdl" as MiniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as MiniTasks
 
 #Resolve complex SV for a single chromosome
 workflow ResolveComplexSv {

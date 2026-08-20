@@ -2,8 +2,8 @@ version 1.0
 
 # Author: Ryan Collins <rlcollins@g.harvard.edu>
 
-import "GenotypeCpxCnvs.wdl" as GenotypeCpx
-import "TasksMakeCohortVcf.wdl" as MiniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GenotypeCpxCnvs.wdl" as GenotypeCpx
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as MiniTasks
 
 # Workflow to perform depth-based genotyping for a single vcf shard scattered 
 # across batches on predicted CPX CNVs

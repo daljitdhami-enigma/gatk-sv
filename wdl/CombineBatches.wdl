@@ -1,10 +1,10 @@
 version 1.0
 
-import "CombineSRBothsidePass.wdl" as CombineSRBothsidePassWorkflow
-import "FormatVcfForGatk.wdl" as GatkFormatting
-import "TasksClusterBatch.wdl" as ClusterTasks
-import "TasksGenotypeBatch.wdl" as GenotypeTasks
-import "TasksMakeCohortVcf.wdl" as MiniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CombineSRBothsidePass.wdl" as CombineSRBothsidePassWorkflow
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/FormatVcfForGatk.wdl" as GatkFormatting
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksClusterBatch.wdl" as ClusterTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksGenotypeBatch.wdl" as GenotypeTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as MiniTasks
 
 workflow CombineBatches {
   input {

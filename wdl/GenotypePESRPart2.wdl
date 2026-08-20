@@ -1,8 +1,8 @@
 version 1.0
 
-import "Structs.wdl"
-import "TasksGenotypeBatch.wdl" as tasksgenotypebatch
-import "TasksMakeCohortVcf.wdl" as tasksmakecohortvcf
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksGenotypeBatch.wdl" as tasksgenotypebatch
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as tasksmakecohortvcf
 
 workflow GenotypePESRPart2 {
   input {

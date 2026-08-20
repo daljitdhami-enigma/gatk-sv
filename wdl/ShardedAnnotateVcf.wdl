@@ -1,10 +1,10 @@
 version 1.0
 
-import "Structs.wdl"
-import "TasksMakeCohortVcf.wdl" as MiniTasks
-import "Utils.wdl" as util
-import "AnnotateFunctionalConsequences.wdl" as func
-import "AnnotateExternalAFPerShard.wdl" as eaf
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as MiniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as util
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/AnnotateFunctionalConsequences.wdl" as func
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/AnnotateExternalAFPerShard.wdl" as eaf
 
 # Perform annotation per contig
 

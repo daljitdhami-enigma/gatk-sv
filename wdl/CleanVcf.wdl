@@ -1,8 +1,8 @@
 version 1.0
 
-import "CleanVcfChromosome.wdl" as CleanVcfChromosome
-import "TasksMakeCohortVcf.wdl" as MiniTasks
-import "MakeCohortVcfMetrics.wdl" as metrics
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CleanVcfChromosome.wdl" as CleanVcfChromosome
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as MiniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/MakeCohortVcfMetrics.wdl" as metrics
 
 workflow CleanVcf {
   input {

@@ -1,10 +1,10 @@
 version 1.0
 
-import "TrainGqRecalibrator.wdl" as TrainGqRecalibrator
-import "RecalibrateGq.wdl" as RecalibrateGq
-import "BenchmarkGqFilter.wdl" as BenchmarkGqFilter
-import "PickleVcfProperties.wdl" as PickleVcfProperties
-import "Utils.wdl" as Utils
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TrainGqRecalibrator.wdl" as TrainGqRecalibrator
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/RecalibrateGq.wdl" as RecalibrateGq
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/BenchmarkGqFilter.wdl" as BenchmarkGqFilter
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/PickleVcfProperties.wdl" as PickleVcfProperties
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as Utils
 
 workflow CrossValidateGqRecalibrator {
     input {

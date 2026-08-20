@@ -1,6 +1,6 @@
 version 1.0
 
-import "TasksMakeCohortVcf.wdl" as MiniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as MiniTasks
 
 # Workflow to gather lists of variant IDs per sample from one or more SV VCFs
 workflow CollectQcPerSample {

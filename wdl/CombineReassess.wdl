@@ -1,6 +1,6 @@
 version 1.0
 
-import "Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
 
 workflow CombineReassess {
   input {

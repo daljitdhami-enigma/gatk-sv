@@ -1,8 +1,8 @@
 version 1.0
 
-import "TrainGqRecalibrator.wdl" as TrainGqRecalibrator
-import "TasksMakeCohortVcf.wdl" as tasks_cohort
-import "Utils.wdl" as Utils
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TrainGqRecalibrator.wdl" as TrainGqRecalibrator
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as tasks_cohort
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as Utils
 
 workflow RecalibrateGq {
     input {

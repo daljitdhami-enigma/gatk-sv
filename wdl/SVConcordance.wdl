@@ -1,7 +1,7 @@
 version 1.0
 
-import "Structs.wdl"
-import "TasksMakeCohortVcf.wdl" as tasks_cohort
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as tasks_cohort
 
 workflow SVConcordance {
   input {

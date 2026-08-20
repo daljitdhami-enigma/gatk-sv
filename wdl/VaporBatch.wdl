@@ -1,7 +1,7 @@
 version 1.0
 
-import "Structs.wdl"
-import "Vapor.wdl" as vapor_bed
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Vapor.wdl" as vapor_bed
 
 workflow VaporBatch {
   input {

@@ -1,9 +1,9 @@
 version 1.0
 
-import "FormatVcfForGatk.wdl" as format
-import "TasksMakeCohortVcf.wdl" as taskscohort
-import "TasksClusterBatch.wdl" as taskscluster
-import "TestUtils.wdl" as tu
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/FormatVcfForGatk.wdl" as format
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as taskscohort
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksClusterBatch.wdl" as taskscluster
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TestUtils.wdl" as tu
 
 workflow GenerateBatchMetrics {
   input {

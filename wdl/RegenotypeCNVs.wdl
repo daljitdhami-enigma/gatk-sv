@@ -1,9 +1,9 @@
 version 1.0
 
-import "FormatVcfForGatk.wdl" as format_vcf
-import "Genotype_2.wdl" as g2
-import "CombineReassess.wdl" as creassess
-import "Utils.wdl" as util
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/FormatVcfForGatk.wdl" as format_vcf
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Genotype_2.wdl" as g2
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CombineReassess.wdl" as creassess
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as util
 
 workflow RegenotypeCNVs {
   input {

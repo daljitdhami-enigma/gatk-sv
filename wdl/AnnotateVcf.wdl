@@ -1,9 +1,9 @@
 version 1.0
 
-import "Structs.wdl"
-import "ShardedAnnotateVcf.wdl" as sharded_annotate_vcf
-import "TasksMakeCohortVcf.wdl" as MiniTasks
-import "Utils.wdl" as utils
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/ShardedAnnotateVcf.wdl" as sharded_annotate_vcf
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as MiniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as utils
 
 workflow AnnotateVcf {
 

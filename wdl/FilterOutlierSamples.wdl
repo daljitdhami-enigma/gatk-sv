@@ -1,8 +1,8 @@
 version 1.0
 
-import "Structs.wdl"
-import "Utils.wdl" as util
-import "IdentifyOutlierSamples.wdl" as identify_outliers
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as util
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/IdentifyOutlierSamples.wdl" as identify_outliers
 
 # Filter outlier samples by IQR or cutoff table for a single VCF. Recommended to run PlotSVCountsPerSample first to choose cutoff
 workflow FilterOutlierSamples {

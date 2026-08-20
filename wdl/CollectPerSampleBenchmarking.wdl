@@ -1,6 +1,6 @@
 version 1.0
 
-import "TasksMakeCohortVcf.wdl" as MiniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as MiniTasks
 
 # Workflow to perform per-sample benchmarking from an SV VCF vs an external dataset
 workflow CollectPerSampleBenchmarking {

@@ -1,7 +1,7 @@
 version 1.0
 
-import "Utils.wdl" as Utils
-import "PickleVcfProperties.wdl" as PickleVcfProperties
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as Utils
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/PickleVcfProperties.wdl" as PickleVcfProperties
 
 
 workflow BenchmarkGqFilter {

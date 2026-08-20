@@ -1,10 +1,10 @@
 version 1.0
 
-import "GatherBatchEvidence.wdl" as batchevidence
-import "ClusterBatch.wdl" as clusterbatch
-import "GenerateBatchMetrics.wdl" as batchmetrics
-import "FilterBatch.wdl" as filterbatch
-import "Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GatherBatchEvidence.wdl" as batchevidence
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/ClusterBatch.wdl" as clusterbatch
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GenerateBatchMetrics.wdl" as batchmetrics
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/FilterBatch.wdl" as filterbatch
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
 
 # One mighty WDL to rule them all...
 # Runs GatherBatchEvidence, ClusterBatch, GenerateBatchMetrics, FilterBatch

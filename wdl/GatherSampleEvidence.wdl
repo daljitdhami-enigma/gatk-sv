@@ -1,13 +1,13 @@
 version 1.0
 
-import "Structs.wdl"
-import "CollectCoverage.wdl" as cov
-import "CollectSVEvidence.wdl" as coev
-import "Manta.wdl" as manta
-import "MELT.wdl" as melt
-import "Scramble.wdl" as scramble
-import "Whamg.wdl" as wham
-import "GatherSampleEvidenceMetrics.wdl" as metrics
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CollectCoverage.wdl" as cov
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CollectSVEvidence.wdl" as coev
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Manta.wdl" as manta
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/MELT.wdl" as melt
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Scramble.wdl" as scramble
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Whamg.wdl" as wham
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GatherSampleEvidenceMetrics.wdl" as metrics
 
 # Runs selected tools on BAM/CRAM files
 

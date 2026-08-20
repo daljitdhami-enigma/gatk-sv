@@ -23,7 +23,7 @@
 
 version 1.0
 
-import "GermlineCNVTasks.wdl" as CNVTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GermlineCNVTasks.wdl" as CNVTasks
 
 workflow CNVGermlineCaseWorkflow {
 

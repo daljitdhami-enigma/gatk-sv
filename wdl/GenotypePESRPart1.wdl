@@ -1,8 +1,8 @@
 version 1.0
 
-import "TrainRDGenotyping.wdl" as rd_train
-import "TrainPEGenotyping.wdl" as pe_train
-import "TrainSRGenotyping.wdl" as sr_train
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TrainRDGenotyping.wdl" as rd_train
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TrainPEGenotyping.wdl" as pe_train
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TrainSRGenotyping.wdl" as sr_train
 
 workflow GenotypePESRPart1 {
   input {

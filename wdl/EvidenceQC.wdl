@@ -1,11 +1,11 @@
 version 1.0
 
-import "Structs.wdl"
-import "MakeBincovMatrix.wdl" as mbm
-import "PloidyEstimation.wdl" as pe
-import "RawVcfQC.wdl" as vcfqc
-import "WGD.wdl" as wgd
-import "MedianCov.wdl" as mc
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/MakeBincovMatrix.wdl" as mbm
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/PloidyEstimation.wdl" as pe
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/RawVcfQC.wdl" as vcfqc
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/WGD.wdl" as wgd
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/MedianCov.wdl" as mc
 
 # Runs single sample tasks on collected evidence:
 #   - Ploidy determination

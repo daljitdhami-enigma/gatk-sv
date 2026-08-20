@@ -2,7 +2,7 @@ version 1.0
 
 # Workflow to scatter site-level benchmarking vs. an external dataset by chromosome
 
-import "TasksMakeCohortVcf.wdl" as MiniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as MiniTasks
 
 workflow CollectSiteLevelBenchmarking {
   input {

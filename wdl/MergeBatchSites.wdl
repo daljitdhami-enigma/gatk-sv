@@ -1,9 +1,9 @@
 version 1.0
 
-import "Structs.wdl"
-import "FormatVcfForGatk.wdl" as format_vcf
-import "TasksClusterBatch.wdl" as tasks_cluster
-import "TasksMakeCohortVcf.wdl" as tasks_cohort
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/FormatVcfForGatk.wdl" as format_vcf
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksClusterBatch.wdl" as tasks_cluster
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as tasks_cohort
 
 workflow MergeBatchSites {
   input {

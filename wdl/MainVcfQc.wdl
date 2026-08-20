@@ -1,11 +1,11 @@
 version 1.0
 
-import "CollectQcVcfWide.wdl" as vcfwideqc
-import "CollectQcPerSample.wdl" as persample
-import "CollectSiteLevelBenchmarking.wdl" as sitebench
-import "CollectPerSampleBenchmarking.wdl" as samplebench
-import "TasksMakeCohortVcf.wdl" as MiniTasks
-import "Utils.wdl" as Utils
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CollectQcVcfWide.wdl" as vcfwideqc
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CollectQcPerSample.wdl" as persample
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CollectSiteLevelBenchmarking.wdl" as sitebench
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/CollectPerSampleBenchmarking.wdl" as samplebench
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as MiniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as Utils
 
 # Main workflow to perform comprehensive quality control (QC) on
 # an SV VCF output by GATK-SV

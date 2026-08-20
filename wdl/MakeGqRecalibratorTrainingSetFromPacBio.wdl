@@ -1,9 +1,9 @@
 version 1.0
 
-import "Structs.wdl"
-import "SVConcordancePacBioSample.wdl" as concordance
-import "Utils.wdl" as utils
-import "TasksMakeCohortVcf.wdl" as mini_tasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/SVConcordancePacBioSample.wdl" as concordance
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as utils
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as mini_tasks
 
 workflow MakeGqRecalibratorTrainingSetFromPacBio {
 

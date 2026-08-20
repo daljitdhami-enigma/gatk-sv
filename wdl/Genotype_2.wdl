@@ -1,5 +1,5 @@
 version 1.0
-import "TasksGenotypeBatch.wdl" as tasksgenotypebatch
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksGenotypeBatch.wdl" as tasksgenotypebatch
 
 workflow Regenotype {
   input {

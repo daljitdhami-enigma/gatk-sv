@@ -1,8 +1,8 @@
 version 1.0
 
-import "Structs.wdl"
-import "GetShardInputs.wdl"
-import "Utils.wdl" as util
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GetShardInputs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as util
 
 # Does prelim translocation resolve from raw manta calls
 workflow TinyResolve {

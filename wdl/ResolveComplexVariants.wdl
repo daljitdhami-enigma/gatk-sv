@@ -1,8 +1,8 @@
 version 1.0
 
-import "ReshardVcf.wdl" as Reshard
-import "ResolveCpxSv.wdl" as ResolveComplexContig
-import "TasksMakeCohortVcf.wdl" as MiniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/ReshardVcf.wdl" as Reshard
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/ResolveCpxSv.wdl" as ResolveComplexContig
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as MiniTasks
 
 workflow ResolveComplexVariants {
   input {

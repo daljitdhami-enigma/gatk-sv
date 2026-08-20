@@ -1,18 +1,18 @@
 version 1.0
 
-import "GatherSampleEvidenceBatch.wdl" as sampleevidence
-import "EvidenceQC.wdl" as evidenceqc
-import "GATKSVPipelinePhase1.wdl" as phase1
-import "GenotypeBatch.wdl" as genotypebatch
-import "RegenotypeCNVs.wdl" as regenocnvs
-import "MakeCohortVcf.wdl" as makecohortvcf
-import "TasksClusterBatch.wdl" as tasks_cluster
-import "TasksMakeCohortVcf.wdl" as tasks_makecohortvcf
-import "StripyWorkflow.wdl" as stripy
-import "AnnotateVcf.wdl" as annotate
-import "Utils.wdl" as utils
-import "Structs.wdl"
-import "TestUtils.wdl" as tu
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GatherSampleEvidenceBatch.wdl" as sampleevidence
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/EvidenceQC.wdl" as evidenceqc
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GATKSVPipelinePhase1.wdl" as phase1
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GenotypeBatch.wdl" as genotypebatch
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/RegenotypeCNVs.wdl" as regenocnvs
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/MakeCohortVcf.wdl" as makecohortvcf
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksClusterBatch.wdl" as tasks_cluster
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as tasks_makecohortvcf
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/StripyWorkflow.wdl" as stripy
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/AnnotateVcf.wdl" as annotate
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as utils
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TestUtils.wdl" as tu
 
 # GATK SV Pipeline batch mode
 # Runs GatherSampleEvidence, EvidenceQC, GatherBatchEvidence, ClusterBatch, GenerateBatchMetrics, FilterBatch, GenotypeBatch, RegenotypeCNVs,

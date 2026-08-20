@@ -2,7 +2,7 @@ version 1.0
 
 # Workflow to gather SV VCF summary stats for one or more input VCFs
 
-import "TasksMakeCohortVcf.wdl" as MiniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as MiniTasks
 
 workflow CollectQcVcfWide {
   input {

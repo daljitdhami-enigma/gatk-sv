@@ -2,7 +2,7 @@ version 1.0
 
 # Workflow definition for Calculating Median Coverage 
 
-import "Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
 
 workflow MedianCov {
   input {

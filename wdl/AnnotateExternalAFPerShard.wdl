@@ -2,8 +2,8 @@ version 1.0
 
 # Author: Xuefang Zhao <XZHAO12@mgh.harvard.edu>
 
-import "Structs.wdl"
-import "TasksMakeCohortVcf.wdl" as MiniTasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as MiniTasks
 
 workflow AnnotateExternalAFPerShard {
     input {

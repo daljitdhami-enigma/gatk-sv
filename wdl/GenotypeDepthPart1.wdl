@@ -1,6 +1,6 @@
 version 1.0
 
-import "TrainRDGenotyping.wdl" as rd_train
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TrainRDGenotyping.wdl" as rd_train
 
 workflow GenotypeDepthPart1 {
   input {

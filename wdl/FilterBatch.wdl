@@ -1,10 +1,10 @@
 version 1.0
 
-import "FilterBatchSites.wdl" as filter_sites
-import "PlotSVCountsPerSample.wdl" as sv_counts
-import "FilterBatchSamples.wdl" as filter_outliers
-import "Utils.wdl" as util
-import "FilterBatchMetrics.wdl" as metrics
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/FilterBatchSites.wdl" as filter_sites
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/PlotSVCountsPerSample.wdl" as sv_counts
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/FilterBatchSamples.wdl" as filter_outliers
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as util
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/FilterBatchMetrics.wdl" as metrics
 
 workflow FilterBatch {
   input {

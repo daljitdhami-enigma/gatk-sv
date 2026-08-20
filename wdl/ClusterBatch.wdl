@@ -1,11 +1,11 @@
 version 1.0
 
-import "PESRClustering.wdl" as pesr
-import "DepthClustering.wdl" as depth
-import "ClusterBatchMetrics.wdl" as metrics
-import "TasksClusterBatch.wdl" as tasks
-import "Utils.wdl" as util
-import "PlotSVCountsPerSample.wdl" as sv_counts
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/PESRClustering.wdl" as pesr
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/DepthClustering.wdl" as depth
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/ClusterBatchMetrics.wdl" as metrics
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksClusterBatch.wdl" as tasks
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as util
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/PlotSVCountsPerSample.wdl" as sv_counts
 
 workflow ClusterBatch {
   input {

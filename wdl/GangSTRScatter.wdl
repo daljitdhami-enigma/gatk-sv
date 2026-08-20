@@ -1,7 +1,7 @@
 version 1.0
 
-import "Structs.wdl"
-import "GangSTR.wdl" as GangSTR
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GangSTR.wdl" as GangSTR
 
 workflow GangSTRScatter {
 
