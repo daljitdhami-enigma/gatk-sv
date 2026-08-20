@@ -1,30 +1,55 @@
 version 1.0
 
-import "GatherSampleEvidence.wdl" as sampleevidence
-import "EvidenceQC.wdl" as evidenceqc
-import "PloidyEstimation.wdl" as pe
-import "GatherBatchEvidence.wdl" as batchevidence
-import "DepthPreprocessing.wdl" as dpn
-import "ClusterBatch.wdl" as clusterbatch
-import "TasksClusterBatch.wdl" as tasks_cluster
-import "GenerateBatchMetrics.wdl" as batchmetrics
-import "StripyWorkflow.wdl" as stripy
-import "FormatVcfForGatk.wdl" as format
-import "FilterBatchSamples.wdl" as filterbatch
-import "GenotypeBatch.wdl" as genotypebatch
-import "MakeCohortVcf.wdl" as makecohortvcf
-import "TasksMakeCohortVcf.wdl" as tasks_makecohortvcf
-import "AnnotateVcf.wdl" as annotate
-import "GermlineCNVCase.wdl" as gcnv
-import "ScoreGenotypes.wdl" as sg
-import "FilterGenotypes.wdl" as fg
-import "JoinRawCalls.wdl" as jrc
-import "RefineComplexVariants.wdl" as rcv
-import "SVConcordance.wdl" as svc
-import "SingleSampleFiltering.wdl" as SingleSampleFiltering
-import "GATKSVPipelineSingleSampleMetrics.wdl" as SingleSampleMetrics
-import "Utils.wdl" as utils
-import "Structs.wdl"
+# import "GatherSampleEvidence.wdl" as sampleevidence
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GatherSampleEvidence.wdl" as sampleevidence
+# import "EvidenceQC.wdl" as evidenceqc
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/EvidenceQC.wdl" as evidenceqc
+# import "PloidyEstimation.wdl" as pe
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/PloidyEstimation.wdl" as pe
+# import "GatherBatchEvidence.wdl" as batchevidence
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GatherBatchEvidence.wdl" as batchevidence
+# import "DepthPreprocessing.wdl" as dpn
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/DepthPreprocessing.wdl" as dpn
+# import "ClusterBatch.wdl" as clusterbatch
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/ClusterBatch.wdl" as clusterbatch
+# import "TasksClusterBatch.wdl" as tasks_cluster
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksClusterBatch.wdl" as tasks_cluster
+# import "GenerateBatchMetrics.wdl" as batchmetrics
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GenerateBatchMetrics.wdl" as batchmetrics
+# import "StripyWorkflow.wdl" as stripy
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/StripyWorkflow.wdl" as stripy
+# import "FormatVcfForGatk.wdl" as format
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/FormatVcfForGatk.wdl" as format
+# import "FilterBatchSamples.wdl" as filterbatch
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/FilterBatchSamples.wdl" as filterbatch
+# import "GenotypeBatch.wdl" as genotypebatch
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GenotypeBatch.wdl" as genotypebatch
+# import "MakeCohortVcf.wdl" as makecohortvcf
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/MakeCohortVcf.wdl" as makecohortvcf
+# import "TasksMakeCohortVcf.wdl" as tasks_makecohortvcf
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/TasksMakeCohortVcf.wdl" as tasks_makecohortvcf
+# import "AnnotateVcf.wdl" as annotate
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/AnnotateVcf.wdl" as annotate
+# import "GermlineCNVCase.wdl" as gcnv
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GermlineCNVCase.wdl" as gcnv
+# import "ScoreGenotypes.wdl" as sg
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/ScoreGenotypes.wdl" as sg 
+# import "FilterGenotypes.wdl" as fg
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/FilterGenotypes.wdl" as fg
+# import "JoinRawCalls.wdl" as jrc
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/JoinRawCalls.wdl" as jrc
+# import "RefineComplexVariants.wdl" as rcv
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/RefineComplexVariants.wdl" as rcv
+# import "SVConcordance.wdl" as svc
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/SVConcordance.wdl" as svc
+# import "SingleSampleFiltering.wdl" as SingleSampleFiltering
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/SingleSampleFiltering.wdl" as SingleSampleFiltering
+# import "GATKSVPipelineSingleSampleMetrics.wdl" as SingleSampleMetrics
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/GATKSVPipelineSingleSampleMetrics.wdl" as SingleSampleMetrics
+# import "Utils.wdl" as utils
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Utils.wdl" as utils
+# import "Structs.wdl"
+import "https://github.com/daljitdhami-enigma/gatk-sv/raw/refs/heads/main/wdl/Structs.wdl"
 
 # GATK SV Pipeline single sample mode
 # Runs GatherSampleEvidence, EvidenceQC, GatherBatchEvidence, ClusterBatch, FilterBatch.MergePesrVcfs, GenotypeBatch, 
