@@ -774,6 +774,7 @@ task AddRetroDelFilters {
     String contig
     String prefix
     String sv_pipeline_docker
+    String custom_docker = "us.gcr.io/broad-dsde-methods/gatk-sv/sv-pipeline:2025-11-15-v1.1-99ad3600"
     RuntimeAttr? runtime_attr_override
   }
   
@@ -792,18 +793,26 @@ task AddRetroDelFilters {
     cpu: select_first([runtime_override.cpu_cores, runtime_default.cpu_cores])
     preemptible: select_first([runtime_override.preemptible_tries, runtime_default.preemptible_tries])
     maxRetries: select_first([runtime_override.max_retries, runtime_default.max_retries])
-    docker: sv_pipeline_docker
+    docker: custom_docker
     bootDiskSizeGb: select_first([runtime_override.boot_disk_gb, runtime_default.boot_disk_gb])
   }
 
   command <<<
     set -euo pipefail
     
+    # ORIGINAL COMMAND
+    # python /opt/sv-pipeline/04_variant_resolution/scripts/add_retro_del_filters.py \
+    #   ~{vcf} \
+    #   ~{intron_reference} \
+    #   ~{prefix}.vcf.gz \
+    #   --contig ~{contig}
+
+    # MODIFIED COMMAND
     python /opt/sv-pipeline/04_variant_resolution/scripts/add_retro_del_filters.py \
       ~{vcf} \
       ~{intron_reference} \
-      ~{prefix}.vcf.gz \
-      --contig ~{contig}
+      ~{contig} \
+      ~{prefix}.vcf.gz
   >>>
 
   output {
