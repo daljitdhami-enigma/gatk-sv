@@ -83,11 +83,12 @@ task RecalibrateGqTask {
     command <<<
         set -euo pipefail
 
-        ln -s ~{vcf} ~{input_vcf_filename}
+        # ln -s ~{vcf} ~{input_vcf_filename}
+        
         #------------------------------------------------------------------------------------
         # ADDITON
         # Unzip, swap MULTIALLELIC to PASS, re-compress, and name it correctly
-        gzip -cd temp_input_~{input_vcf_filename} | \
+        gzip -cd ~{vcf} | \
         sed 's/\tMULTIALLELIC\t/\tPASS\t/g' | \
         bgzip -c > ~{input_vcf_filename}
         #------------------------------------------------------------------------------------
