@@ -332,6 +332,7 @@ task PlotQcVcfWide {
     File samples_list
     String prefix
     String sv_pipeline_qc_docker
+    String custom_docker = "us.gcr.io/broad-dsde-methods/gatk-sv/sv-pipeline:2025-11-15-v1.1-99ad3600"
     RuntimeAttr? runtime_attr_override
   }
   RuntimeAttr runtime_default = object {
@@ -349,7 +350,7 @@ task PlotQcVcfWide {
     cpu: select_first([runtime_override.cpu_cores, runtime_default.cpu_cores])
     preemptible: select_first([runtime_override.preemptible_tries, runtime_default.preemptible_tries])
     maxRetries: select_first([runtime_override.max_retries, runtime_default.max_retries])
-    docker: sv_pipeline_qc_docker
+    docker: custom_docker
     bootDiskSizeGb: select_first([runtime_override.boot_disk_gb, runtime_default.boot_disk_gb])
   }
 
