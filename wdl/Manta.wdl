@@ -48,7 +48,7 @@ workflow Manta {
       region_bed_index = region_bed_index,
       jobs_per_cpu = jobs_per_cpu,
       mem_gb_per_job = mem_gb_per_job,
-      manta_docker = manta_docker,,
+      manta_docker = manta_docker,
       disk_type = disk_type
   }
 
