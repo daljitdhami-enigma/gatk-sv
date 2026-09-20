@@ -19,6 +19,9 @@ workflow Whamg {
     Float? pct_exc_total
     String wham_docker
     RuntimeAttr? runtime_attr_wham
+
+    # NEW ADDITION
+    String disk_type = "HDD" # "HDD" or "SSD"
   }
 
   parameter_meta {
@@ -49,7 +52,8 @@ workflow Whamg {
         pf_reads_improper_pairs = pf_reads_improper_pairs,
         pct_exc_total = pct_exc_total,
         wham_docker = wham_docker,
-        runtime_attr_override = runtime_attr_wham
+        runtime_attr_override = runtime_attr_wham,
+        disk_type = disk_type
     }
   }
   if (!is_bam) {
@@ -65,7 +69,8 @@ workflow Whamg {
         pf_reads_improper_pairs = pf_reads_improper_pairs,
         pct_exc_total = pct_exc_total,
         wham_docker = wham_docker,
-        runtime_attr_override = runtime_attr_wham
+        runtime_attr_override = runtime_attr_wham,
+        disk_type = disk_type
     }
   }
 
@@ -90,7 +95,7 @@ task RunWhamgOnBam {
     RuntimeAttr? runtime_attr_override
 
     # NEW ADDITION
-    String disk_type = "HDD" # "HDD" or "SSD"
+    String disk_type
   }
 
   Array[String] chr_list = read_lines(primary_contigs_list)
@@ -203,7 +208,7 @@ task RunWhamgOnCram {
     RuntimeAttr? runtime_attr_override
 
     # NEW ADDITION
-    String disk_type = "HDD" # "HDD" or "SSD"
+    String disk_type
   }
 
   Array[String] chr_list = read_lines(primary_contigs_list)

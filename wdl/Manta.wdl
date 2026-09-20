@@ -20,6 +20,9 @@ workflow Manta {
     Int? mem_gb_per_job
     String manta_docker
     RuntimeAttr? runtime_attr_override
+
+    # NEW ADDITION
+    String disk_type = "HDD" # "HDD" or "SSD"
   }
 
   parameter_meta {
@@ -70,7 +73,7 @@ task RunManta {
     RuntimeAttr? runtime_attr_override
 
     # NEW ADDITION
-    String disk_type = "HDD" # "HDD" or "SSD"
+    String disk_type
   }
 
   Boolean is_bam = basename(bam_or_cram_file, ".bam") + ".bam" == basename(bam_or_cram_file)
