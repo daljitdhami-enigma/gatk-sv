@@ -88,6 +88,9 @@ task RunWhamgOnBam {
     Float? pct_exc_total
     String wham_docker
     RuntimeAttr? runtime_attr_override
+
+    # NEW ADDITION
+    String disk_type = "HDD" # "HDD" or "SSD"
   }
 
   Array[String] chr_list = read_lines(primary_contigs_list)
@@ -176,7 +179,7 @@ task RunWhamgOnBam {
   runtime {
     cpu: cpu_cores
     memory: select_first([runtime_attr.mem_gb, default_attr.mem_gb]) + " GiB"
-    disks: "local-disk " + select_first([runtime_attr.disk_gb, default_attr.disk_gb]) + " HDD"
+    disks: "local-disk " + select_first([runtime_attr.disk_gb, default_attr.disk_gb]) + " ~{disk_type}"
     bootDiskSizeGb: select_first([runtime_attr.boot_disk_gb, default_attr.boot_disk_gb])
     docker: wham_docker
     preemptible: select_first([runtime_attr.preemptible_tries, default_attr.preemptible_tries])
@@ -198,6 +201,9 @@ task RunWhamgOnCram {
     Float? pct_exc_total
     String wham_docker
     RuntimeAttr? runtime_attr_override
+
+    # NEW ADDITION
+    String disk_type = "HDD" # "HDD" or "SSD"
   }
 
   Array[String] chr_list = read_lines(primary_contigs_list)
@@ -290,7 +296,7 @@ task RunWhamgOnCram {
   runtime {
     cpu: cpu_cores
     memory: select_first([runtime_attr.mem_gb, default_attr.mem_gb]) + " GiB"
-    disks: "local-disk " + select_first([runtime_attr.disk_gb, default_attr.disk_gb]) + " HDD"
+    disks: "local-disk " + select_first([runtime_attr.disk_gb, default_attr.disk_gb]) + " " + ~{disk_type}
     bootDiskSizeGb: select_first([runtime_attr.boot_disk_gb, default_attr.boot_disk_gb])
     docker: wham_docker
     preemptible: select_first([runtime_attr.preemptible_tries, default_attr.preemptible_tries])

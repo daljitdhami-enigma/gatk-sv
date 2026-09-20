@@ -76,6 +76,9 @@ task RunStripy {
         Boolean verbose = false
         String stripy_docker
         RuntimeAttr? runtime_attr_override
+
+        # NEW ADDITION
+        String disk_type = "HDD" # "HDD" or "SSD"
     }
     
     String output_dir = "STRipy_output"
@@ -139,7 +142,7 @@ task RunStripy {
     runtime {
         cpu: select_first([runtime_attr.cpu_cores, default_attr.cpu_cores])
         memory: select_first([runtime_attr.mem_gb, default_attr.mem_gb]) + " GiB"
-        disks: "local-disk " + select_first([runtime_attr.disk_gb, default_attr.disk_gb]) + " HDD"
+        disks: "local-disk " + select_first([runtime_attr.disk_gb, default_attr.disk_gb]) + " " + ~{disk_type}
         bootDiskSizeGb: select_first([runtime_attr.boot_disk_gb, default_attr.boot_disk_gb])
         docker: stripy_docker
         preemptible: select_first([runtime_attr.preemptible_tries, default_attr.preemptible_tries])
