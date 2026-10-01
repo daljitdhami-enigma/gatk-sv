@@ -41,6 +41,9 @@ workflow GATKSVPipelineSingleSample {
     String sample_id
     File ref_samples_list
 
+    # Destination bucket path for data transfer
+    String destination_bucket
+
     # Define raw callers to use
     # Overrides presence of case_*_vcf parameters below
     Boolean use_dragen = false
@@ -1496,34 +1499,147 @@ workflow GATKSVPipelineSingleSample {
       sv_pipeline_docker = sv_pipeline_docker
   }
 
+## CALL - DATA TRANSFER TO BUCKET
+  call DataTransfer {
+    input:
+      sample_id = sample_id,
+      destination_bucket = destination_bucket,
+
+      final_vcf = select_first([MergeStripyVcf.out, UpdateBreakendRepresentationAndRemoveFilters.out]),
+      final_vcf_idx = select_first([MergeStripyVcf.out_index, UpdateBreakendRepresentationAndRemoveFilters.out_idx]),
+
+      pre_cleanup_vcf = AnnotateVcf.annotated_vcf,
+      pre_cleanup_vcf_idx = AnnotateVcf.annotated_vcf_index,
+
+      stripy_json_output = StripyWorkflow.stripy_json,
+      stripy_tsv_output = StripyWorkflow.stripy_tsv,
+      stripy_html_output = StripyWorkflow.stripy_html,
+      stripy_vcf_output = StripyWorkflow.stripy_vcf,
+
+      metrics_file = SingleSampleMetrics.metrics_file,
+      qc_file = SingleSampleQC.out,
+
+      ploidy_matrix = select_first([GatherBatchEvidence.batch_ploidy_matrix]),
+      ploidy_plots = select_first([GatherBatchEvidence.batch_ploidy_plots]),
+
+      non_genotyped_unique_depth_calls = GetUniqueNonGenotypedDepthCalls.out,
+      non_genotyped_unique_depth_calls_idx = GetUniqueNonGenotypedDepthCalls.out_idx
+  }
+
   output {
     # Final calls
-    File final_vcf = select_first([MergeStripyVcf.out, UpdateBreakendRepresentationAndRemoveFilters.out])
-    File final_vcf_idx = select_first([MergeStripyVcf.out_index, UpdateBreakendRepresentationAndRemoveFilters.out_idx])
-
+    File final_vcf = DataTransfer.final_vcf
+    File final_vcf_idx = DataTransfer.final_vcf_idx
     # These files contain events reported in the internal VCF representation
     # They are less VCF-spec compliant but may be useful if components of the pipeline need to be re-run
     # on the output.
-    File pre_cleanup_vcf = AnnotateVcf.annotated_vcf
-    File pre_cleanup_vcf_idx = AnnotateVcf.annotated_vcf_index
+    File pre_cleanup_vcf = DataTransfer.pre_cleanup_vcf
+    File pre_cleanup_vcf_idx = DataTransfer.pre_cleanup_vcf_idx
 
     # STRipy outputs
-    File? stripy_json_output = StripyWorkflow.stripy_json
-    File? stripy_tsv_output = StripyWorkflow.stripy_tsv
-    File? stripy_html_output = StripyWorkflow.stripy_html
-    File? stripy_vcf_output = StripyWorkflow.stripy_vcf
+    File? stripy_json_output = DataTransfer.stripy_json_output
+    File? stripy_tsv_output = DataTransfer.stripy_tsv_output
+    File? stripy_html_output = DataTransfer.stripy_html_output
+    File? stripy_vcf_output = DataTransfer.stripy_vcf_output
 
     # QC files
-    File metrics_file = SingleSampleMetrics.metrics_file
-    File qc_file = SingleSampleQC.out
+    File metrics_file = DataTransfer.metrics_file
+    File qc_file = DataTransfer.qc_file
 
     # Ploidy estimates
-    File ploidy_matrix = select_first([GatherBatchEvidence.batch_ploidy_matrix])
-    File ploidy_plots = select_first([GatherBatchEvidence.batch_ploidy_plots])
+    File ploidy_matrix = DataTransfer.ploidy_matrix
+    File ploidy_plots = DataTransfer.ploidy_plots
 
     # These files contain any depth based calls made in the case sample that did not pass genotyping
     # in the case sample and do not match a depth-based call from the reference panel.
-    File non_genotyped_unique_depth_calls = GetUniqueNonGenotypedDepthCalls.out
-    File non_genotyped_unique_depth_calls_idx = GetUniqueNonGenotypedDepthCalls.out_idx
+    File non_genotyped_unique_depth_calls = DataTransfer.non_genotyped_unique_depth_calls
+    File non_genotyped_unique_depth_calls_idx = DataTransfer.non_genotyped_unique_depth_calls_idx
   }
+}
+
+## TASK - DATA TRANSFER TO BUCKET
+task DataTransfer {
+  input {
+    ## command inputs
+    # sample id
+    String sample_id
+    # destination bucket path
+    String destination_bucket
+    # Final calls
+    File final_vcf
+    File File final_vcf_idx
+    # These files contain events reported in the internal VCF representation
+    File pre_cleanup_vcf
+    File pre_cleanup_vcf_idx
+    # STRipy outputs
+    File? stripy_json_output
+    File? stripy_tsv_output
+    File? stripy_html_output
+    File? stripy_vcf_output
+    # QC files
+    File metrics_file
+    File qc_file
+    # Ploidy estimates
+    File ploidy_matrix
+    File ploidy_plots
+    # These files contain any depth based calls made in the case sample that did not pass genotyping
+    File non_genotyped_unique_depth_calls
+    File non_genotyped_unique_depth_calls_idx
+
+    ## runtime inputs
+    Int cpu = 1
+    Int ram_gb = 2
+    Int disk_size = 50
+    String disk_type = "SSD"
+    String docker = "google/cloud-sdk"
+    Int preemptible_tries = 1
+  }
+
+  command <<<
+
+    gcloud storage cp ~{final_vcf} ~{destination_bucket}/~{sample_id}/~{final_vcf}
+    gcloud storage cp ~{final_vcf_idx} ~{destination_bucket}/~{sample_id}/~{final_vcf_idx}
+
+    gcloud storage cp ~{pre_cleanup_vcf} ~{destination_bucket}/~{sample_id}/~{pre_cleanup_vcf}
+    gcloud storage cp ~{pre_cleanup_vcf_idx} ~{destination_bucket}/~{sample_id}/~{pre_cleanup_vcf_idx}
+
+    gcloud storage cp ~{stripy_json_output} ~{destination_bucket}/~{sample_id}/~{stripy_json_output}
+    gcloud storage cp ~{stripy_tsv_output} ~{destination_bucket}/~{sample_id}/~{stripy_tsv_output}
+    gcloud storage cp ~{stripy_html_output} ~{destination_bucket}/~{sample_id}/~{stripy_html_output}
+    gcloud storage cp ~{stripy_vcf_output} ~{destination_bucket}/~{sample_id}/~{stripy_vcf_output}
+
+    gcloud storage cp ~{metrics_file} ~{destination_bucket}/~{sample_id}/~{metrics_file}
+    gcloud storage cp ~{qc_file} ~{destination_bucket}/~{sample_id}/~{qc_file}
+    
+    gcloud storage cp ~{ploidy_matrix} ~{destination_bucket}/~{sample_id}/~{ploidy_matrix}
+    gcloud storage cp ~{ploidy_plots} ~{destination_bucket}/~{sample_id}/~{ploidy_plots}
+
+    gcloud storage cp ~{non_genotyped_unique_depth_calls} ~{destination_bucket}/~{sample_id}/~{non_genotyped_unique_depth_calls}
+    gcloud storage cp ~{non_genotyped_unique_depth_calls_idx} ~{destination_bucket}/~{sample_id}/~{non_genotyped_unique_depth_calls_idx}
+  >>>
+
+  output {
+    String final_vcf = "~{destination_bucket}/~{sample_id}/~{final_vcf}"
+    String final_vcf_idx = "~{destination_bucket}/~{sample_id}/~{final_vcf_idx}"
+    String pre_cleanup_vcf = "~{destination_bucket}/~{sample_id}/~{pre_cleanup_vcf}"
+    String pre_cleanup_vcf_idx = "~{destination_bucket}/~{sample_id}/~{pre_cleanup_vcf_idx}"
+    String stripy_json_output = "~{destination_bucket}/~{sample_id}/~{stripy_json_output}"
+    String stripy_tsv_output = "~{destination_bucket}/~{sample_id}/~{stripy_tsv_output}"
+    String stripy_html_output = "~{destination_bucket}/~{sample_id}/~{stripy_html_output}"
+    String stripy_vcf_output = "~{destination_bucket}/~{sample_id}/~{stripy_vcf_output}"
+    String metrics_file = "~{destination_bucket}/~{sample_id}/~{metrics_file}"
+    String qc_file = "~{destination_bucket}/~{sample_id}/~{qc_file}"
+    String ploidy_matrix = "~{destination_bucket}/~{sample_id}/~{ploidy_matrix}"
+    String ploidy_plots = "~{destination_bucket}/~{sample_id}/~{ploidy_plots}"
+    String non_genotyped_unique_depth_calls = "~{destination_bucket}/~{sample_id}/~{non_genotyped_unique_depth_calls}"
+    String non_genotyped_unique_depth_calls_idx = "~{destination_bucket}/~{sample_id}/~{non_genotyped_unique_depth_calls_idx}"
+  }
+
+  runtime {
+        cpu: cpu
+        memory: "~{ram_gb} GiB"
+        disks: "local-disk " + disk_size + " ~{disk_type}"
+        preemptible: preemptible_tries
+        docker: docker
+    }
 }
