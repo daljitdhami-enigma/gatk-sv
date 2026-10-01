@@ -1567,7 +1567,7 @@ task DataTransfer {
     String destination_bucket
     # Final calls
     File final_vcf
-    File File final_vcf_idx
+    File final_vcf_idx
     # These files contain events reported in the internal VCF representation
     File pre_cleanup_vcf
     File pre_cleanup_vcf_idx
